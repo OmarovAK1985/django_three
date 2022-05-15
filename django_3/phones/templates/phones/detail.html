@@ -1,0 +1,16 @@
+{% extends 'phones/base.html' %}
+{% block base %}
+
+<div class="container">
+ <div class="row mt-2">
+     <div class="col"><h2 class="text-center text-info text-uppercase font-weight-bold">Характеристики телефона {{phone.name}}</h2></div>
+ </div>
+    <div class="row mt-3">
+        <div class="col-7"><p class=""></p></div>
+        <div class="col-5"><img src="{{phone.image}}" class="img-rounded pull-xs-left" width="189" height="360" ></div>
+    </div>
+
+
+</div>
+
+{% endblock base %}

@@ -1,0 +1,44 @@
+{% extends 'phones/base.html' %}
+{% block base %}
+
+<div class="container">
+
+
+ <div class="row">
+   <div class="col"><span class="mr-3">Сортировать по:</span>
+    <a href="{% url 'phones:list'%}?sort=name" class="btn btn-warning">названию</a>
+    <a href="{% url 'phones:list'%}?sort=min_price" class="btn btn-warning">сначало дешевые</a>
+    <a href="{% url 'phones:list'%}?sort=max_price" class="btn btn-warning">сначало дорогие</a>
+    </div>
+ </div>
+
+
+
+
+
+ <div class="row mt-3">
+{% for i in phones %}
+<div class="col-4">
+ <div><h2 class="text-primary"><a href="{{i.get_absolute_url}}">{{i.name}}</a></h2></div>
+ <p class="font-weight-bold">Стоимость: {{i.price}} рублей</p>
+ <div>
+  <img src="{{i.image}}" alt="Фотография {{i.name}}" class="img-rounded pull-xs-left" width="189" height="360">
+ </div>
+</div>
+{% endfor %}
+  </div>
+ </div>
+
+<div class="navbar-fixed-bottom row-fluid footer">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="row mt-3">
+             <div class="col"><a class="text-danger text-uppercase" href="{% url 'books:books_list' %}">Ссылка на библиотеку</a></div>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
+
+
+{% endblock base %}

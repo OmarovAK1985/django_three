@@ -1,0 +1,33 @@
+{% extends 'phones/base.html' %}
+
+
+{% block base %}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col">
+            <h2 class="text-info">Каталог на дату публикации: {{current_date}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-4">
+            <h2 class="text-info">{{book.name_book}}</h2>
+            <p>Автор: {{book.author}}</p>
+            <p>Дата публикации: {{book.date_publication}}</p>
+        </div>
+        {% endfor%}
+
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            {% if previous_date != 1  %}<p><a href="{{previous_date.year}}-{{previous_date.month}}-{{previous_date.day}}">Предыдущая дата: {{previous_date}}</a></p>{% endif %}
+        </div>
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">{% if next_date != 1  %}<a href="{{next_date.year}}-{{next_date.month}}-{{next_date.day}}">Следующая дата: {{next_date}}</a></div>{% endif %}
+
+    </div>
+</div>
+{% endblock base %}
